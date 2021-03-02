@@ -117,7 +117,7 @@ bool TGAImage::write_tga_file(const std::string filename, const bool vflip) cons
 TGAColor TGAImage::get(const int x, const int y) const {
     if (!data.size() || x < 0 || y < 0 || x >= width || y >= height)
         return {};
-    return TGAColor(data.data()+(x+y+width)*bytespp, bytespp);
+    return TGAColor(data.data()+(x+y*width)*bytespp, bytespp);
 }
 
 void TGAImage::set(const int x, const int y, const TGAColor &c) {
